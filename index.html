@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8' />
+    <meta charset='utf-8'/>
     <title>Fly to a location</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
     <script src='https://unpkg.com/three@0.106.2/build/three.min.js'></script>
     <script src="https://unpkg.com/three@0.106.2/examples/js/loaders/GLTFLoader.js"></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet'/>
     <link rel="stylesheet" href="assets/css/main.min.css"/>
     <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -31,13 +40,16 @@
         background-color: #fff;
         border-radius: 3px;
         padding: 10px;
-        box-shadow:0 1px 2px rgba(0,0,0,0.20);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.20);
     }
 
     .map-overlay h2,
     .map-overlay p {
         margin: 0 0 10px;
+        font-size: 18px;
+        color: black;
     }
+
     #flyto {
         display: block;
         position: relative;
@@ -58,10 +70,10 @@
 <br/>
 <button id='flyto'>Fly</button>
 <div id="trailMenu" class="trailmenu view" style="z-index: 10">
-    <li><a id="btn1" class="btn-1"><span class="left">Hanra Mountain</span></a></li>
-    <li><a id="btn2"  class="btn-2"><span class="left">Dolharubang</span></a></li>
-    <li><a id="btn3" class="btn-3"><span class="right">Kwandukjung</span></a></li>
-    <li><a id="btn4" class="btn-4"><span class="left">Jeju Folk Valley</span></a></li>
+    <li><a id="btn1" class="btn-1"><span class="left">Jeju Island</span></a></li>
+    <li><a id="btn2" class="btn-2"><span class="left">Jeju Kwandukjung</span></a></li>
+    <li><a id="btn3" class="btn-3"><span class="right">Bijarim Forest</span></a></li>
+    <li><a id="btn4" class="btn-4"><span class="left">Jeju Folk Village</span></a></li>
     <li><a id="btn5" class="btn-5"><span class="right">The Island</span></a></li>
 </div>
 <div id='map'></div>
@@ -69,49 +81,69 @@
     <div class='map-overlay'>
         <h2 id='location-title'></h2>
         <p id='location-description'></p>
-        <small>Text credit: <a target='_blank' href='http://www.nycgo.com/neighborhoods'>nycgo.com</a></small>
     </div>
 </div>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1IjoidmluaG50IiwiYSI6ImNqb2VqdXZvaDE4cnkzcG80dXkxZzlhNWcifQ.G6sZ1ukp_DhiSmCvgKblVQ';
-    var locations = [{
-        "id": "2",
-        "title": "The Bronx",
-        "description": "This is where hip-hop was born, where the Yankees became a dynasty and where you can find New York City's leading zoo and botanical garden.",
-        "camera": {
-            center: [126.396038, 33.406394],
-            zoom: 16,
-            pitch: 50
-        }
-    }, {
-        "id": "3",
-        "title": "Songak Mountain",
-        "description": "Mt. Songak is a simple volcano on Jeju Island which has double craters and a parasitic volcano. Crater 1 is about 500 m in diameter, 1.7 km in circumference. Crater 2, the mouth of the volcano in Crater 1, is about 400 m in diameter, 69 m in depth and leans vertically.",
-        "camera": {
-            center: [126.310454, 33.231492],
-            bearing: -8.9,
-            zoom: 16
-        }
-    }, {
-        "id": "1",
-        "title": "Manjanggul Cave",
-        "description": "Even if you think you know Manhattan—its world-class museums, fine dining and unforgettable views—the borough always has something new and exciting in store.",
-        "camera": {
-            center: [126.771460, 33.528892],
-            bearing: 25.3,
-            zoom: 16
-        }
-    }];
+    var locations = [
+        {
+            "id": "1",
+            "title": "Introduction",
+            "description": "Hello!\n" +
+                "My name is Dol hareubang. I am also called tol harubang, or harubang. I am a large rock statue found on Jeju Island off the southern tip of South Korea. \n" +
+                "\n" +
+                "I am usually considered to be a god offering both protection and fertility, and placed outside of gates for protection against demons travelling between realities.\n" +
+                "\n" +
+                "I have become the symbol of Jeju Island, and replicas of various sizes are sold as tourist souvenirs. \n" +
+                "\n" +
+                "Now, let me take you to a great tourist spots of Jeju Island.\n.",
+            "camera": {
+                center: [126.53, 33.37],
+                zoom: 10.3,
+                speed: 0.5,
+                pitch: 0
+            }
+        }, {
+            "id": "2",
+            "title": "Jeju Kwandukjung",
+            "description": "Here is one of the oldest standing architectures on Jeju Island.\n" +
+                "\n" +
+                "Gwandeokjeong Pavilion was built by Pastor Sin Suk-Cheong in the thirtieth year of King Sejong's reign (1448) as a training ground. For its historic contribution to strengthening the mind and soul of soldiers,  Gwangdeokjeong was designated as National Treasure in 1963. Today, the pavilion serves as a model of excellence in soldier training.",
+            "camera": {
+                center: [126.521502, 33.51344],
+                zoom: 16,
+                pitch: 50
+            }
+        }, {
+            "id": "3",
+            "title": "Bijarim Forest",
+            "description": "Bijarim Forest is an ideal spot for a relaxing forest retreat. The dense forest is home to hundreds of bija (nutmeg yew) trees, and is the largest forest in the world to be made up of one plant species. Most of the trees in the forest have lived for 500 to 700 years, earning the forest the nickname “Forest of a Thousand Years.” A must-see sight while at Bijarim Forest is none other than the 800-year old, conjoined nutmeg yews.",
+            "camera": {
+                center: [126.808487, 33.485726],
+                bearing: -8.9,
+                zoom: 16
+            }
+        }, {
+            "id": "4",
+            "title": "Jeju Folk Village",
+            "description": "The Jeju Folk Village is the island’s main tourist attraction where customs of the old days can be explored. At Jeju Folk Village the unique lifestyle and traditional culture of Jeju Island are presented as they appeared during the 19th century. A mountain village, fishing village, botanical garden, market place, an old government building and authentic shamanistic rites one recreated on this 4500-hectare site in Pyoseon-ri. \n.",
+            "camera": {
+                center: [126.842149, 33.322579],
+                bearing: 25.3,
+                zoom: 16
+            }
+        }];
 
-
+    var title = document.getElementById('location-title');
+    var description = document.getElementById('location-description');
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [126.53, 33.37],
         zoom: 2,
-        antialias:true
+        antialias: true
     });
-    map.on('load', function() {
+    map.on('load', function () {
 // Insert the layer beneath any symbol layer.
         var layers = map.getStyle().layers;
 
@@ -173,7 +205,7 @@
         id: '3d-model',
         type: 'custom',
         renderingMode: '3d',
-        onAdd: function(map, gl) {
+        onAdd: function (map, gl) {
             this.camera = new THREE.Camera();
             this.scene = new THREE.Scene();
 
@@ -188,7 +220,7 @@
 
 // use the three.js GLTF loader to add the 3D model to the three.js scene
             var loader = new THREE.GLTFLoader();
-            loader.load('assets/model/temple.glb', (function (gltf) {
+            loader.load('assets/model/templar.glb', (function (gltf) {
                 this.scene.add(gltf.scene);
             }).bind(this));
             this.map = map;
@@ -202,7 +234,7 @@
 
             this.renderer.autoClear = false;
         },
-        render: function(gl, matrix) {
+        render: function (gl, matrix) {
             var rotationX = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(1, 0, 0), modelTransform.rotateX);
             var rotationY = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(0, 1, 0), modelTransform.rotateY);
             var rotationZ = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(0, 0, 1), modelTransform.rotateZ);
@@ -222,18 +254,18 @@
         }
     };
 
-    map.on('style.load', function() {
+    map.on('style.load', function () {
         map.addLayer(customLayer, 'waterway-label');
     });
     document.getElementById('flyto').addEventListener('click', function () {
         map.flyTo({
             center: [
                 126.53, 33.37],
-            zoom:10.3,
+            zoom: 10.3,
             speed: 0.5
         });
 
-        map.once('moveend', function() {
+        map.once('moveend', function () {
             //playback(0);
         });
 
@@ -243,18 +275,144 @@
         alert("You click on 3d-model")
     });
     let btn1 = document.getElementById('btn1');
-    btn1.addEventListener('click',function () {
+    btn1.addEventListener('click', function () {
         map.flyTo(locations[0].camera);
+        map.once('moveend', function () {
+            title.textContent = locations[0].title;
+            description.textContent = locations[0].description;
+            map.loadImage('assets/images/jeju.png', function (error, image) {
+                if (error) throw error;
+                map.addImage('cat', image);
+                map.addLayer({
+                    "id": "points",
+                    "type": "symbol",
+                    "source": {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": [{
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": [126.53, 33.37]
+                                }
+                            }]
+                        }
+                    },
+                    "layout": {
+                        "icon-image": "cat",
+                        "icon-size": 0.5
+                    }
+                });
+            });
+
+        });
+
     })
 
     let btn2 = document.getElementById('btn2');
-    btn2.addEventListener('click',function () {
+    btn2.addEventListener('click', function () {
         map.flyTo(locations[1].camera);
+        map.once('moveend', function () {
+            title.textContent = locations[1].title;
+            description.textContent = locations[1].description;
+            map.loadImage('assets/images/Kwandukjung.jpg', function (error, image) {
+                if (error) throw error;
+                map.addImage('Kwandukjung', image);
+                map.addLayer({
+                    "id": "Kwandukjung",
+                    "type": "symbol",
+                    "source": {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": [{
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": locations[1].camera.center
+                                }
+                            }]
+                        }
+                    },
+                    "layout": {
+                        "icon-image": "Kwandukjung",
+                        "icon-size": 0.5
+                    }
+                });
+            });
+        });
+
     })
 
     let btn3 = document.getElementById('btn3');
-    btn3.addEventListener('click',function () {
+    btn3.addEventListener('click', function () {
         map.flyTo(locations[2].camera);
+
+        map.once('moveend', function () {
+            title.textContent = locations[2].title;
+            description.textContent = locations[2].description;
+            map.loadImage('assets/images/Bijarim.jpg', function (error, image) {
+                if (error) throw error;
+                map.addImage('Bijarim', image);
+                map.addLayer({
+                    "id": "Bijarim",
+                    "type": "symbol",
+                    "source": {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": [{
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": locations[2].camera.center
+                                }
+                            }]
+                        }
+                    },
+                    "layout": {
+                        "icon-image": "Bijarim",
+                        "icon-size": 0.5
+                    }
+                });
+            });
+        });
+
+    })
+
+    let btn4 = document.getElementById('btn4');
+    btn4.addEventListener('click', function () {
+        map.flyTo(locations[3].camera);
+        map.once('moveend', function () {
+            title.textContent = locations[3].title;
+            description.textContent = locations[3].description;
+            map.loadImage('assets/images/Village.jpg', function (error, image) {
+                if (error) throw error;
+                map.addImage('Village', image);
+                map.addLayer({
+                    "id": "Village",
+                    "type": "symbol",
+                    "source": {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": [{
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Point",
+                                    "coordinates": locations[3].camera.center
+                                }
+                            }]
+                        }
+                    },
+                    "layout": {
+                        "icon-image": "Village",
+                        "icon-size": 0.5
+                    }
+                });
+            });
+        });
     })
 </script>
 
