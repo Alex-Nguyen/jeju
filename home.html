@@ -40,13 +40,23 @@
         .title{
             color:#390
         }
-        .icon-bar a{
+        .icon-bar li{
             padding: 5px;
 
+
         }
-        .icon-bar a i{
+        .icon-bar li:hover{
+            cursor: pointer;
+            color: gray;
+
+        }
+        .icon-bar li i{
 
             color:#390
+        }
+        .icon-bar li i:hover{
+
+            color: gray;
         }
 
     </style>
@@ -78,20 +88,24 @@
             icons:[
                 {
                     action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x'
+                    icon:'fas fa-street-view fa-border fa-2x',
+                    title:'Go to island'
                 },
                 {
                     action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x'
+                    icon:'fas fa-film fa-border fa-2x',
+                    title:'Watch Videos'
                 },
                 {
                     action:'vr-view',
                     icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html'
+                    url:'/harubang.html',
+                    title:'Virtual Reality Tour'
                 },
                 {
                     action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x'
+                    icon:'fas fa-mobile-alt fa-border fa-2x',
+                    title:'Augmented Reality View'
                 }
             ]
         },
@@ -109,20 +123,24 @@
             icons:[
                 {
                     action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x'
+                    icon:'fas fa-street-view fa-border fa-2x',
+                    title:'Go to island'
                 },
                 {
                     action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x'
+                    icon:'fas fa-film fa-border fa-2x',
+                    title:'Watch Videos'
                 },
                 {
                     action:'vr-view',
                     icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html'
+                    url:'/harubang.html',
+                    title:'Virtual Reality Tour'
                 },
                 {
                     action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x'
+                    icon:'fas fa-mobile-alt fa-border fa-2x',
+                    title:'Augmented Reality View'
                 }
             ]
         },
@@ -137,20 +155,24 @@
             icons:[
                 {
                     action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x'
+                    icon:'fas fa-street-view fa-border fa-2x',
+                    title:'Go to island'
                 },
                 {
                     action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x'
+                    icon:'fas fa-film fa-border fa-2x',
+                    title:'Watch Videos'
                 },
                 {
                     action:'vr-view',
                     icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html'
+                    url:'/harubang.html',
+                    title:'Virtual Reality Tour'
                 },
                 {
                     action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x'
+                    icon:'fas fa-mobile-alt fa-border fa-2x',
+                    title:'Augmented Reality View'
                 }
             ]
         },
@@ -165,20 +187,24 @@
             icons:[
                 {
                     action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x'
+                    icon:'fas fa-street-view fa-border fa-2x',
+                    title:'Go to island'
                 },
                 {
                     action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x'
+                    icon:'fas fa-film fa-border fa-2x',
+                    title:'Watch Videos'
                 },
                 {
                     action:'vr-view',
                     icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html'
+                    url:'/harubang.html',
+                    title:'Virtual Reality Tour'
                 },
                 {
                     action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x'
+                    icon:'fas fa-mobile-alt fa-border fa-2x',
+                    title:'Augmented Reality View'
                 }
             ]
         }
@@ -196,15 +222,15 @@
 
     Object.keys(locations).forEach(loc => {
         let footer = document.createElement('nav');
-        footer.className='nav justify-content-center';
+        footer.className='nav justify-content-center icon-bar';
         if(locations[loc].hasOwnProperty('icons')===true){
             locations[loc]["icons"].forEach((icon,ii)=>{
                 let li = document.createElement('li');
                 li.id = `btn-${loc}-${icon.action}`;
-                li.className='nav-item px-2'
+                li.className='nav-item px-2';
+                li.title = icon.title;
                 let i = document.createElement('i');
                 i.style.border="#390 1px solid";
-                i.style.color="#390"
                 i.className=icon.icon;
 
                 li.appendChild(i);
@@ -238,6 +264,17 @@
             zoom: 16,
             speed: 0.5
         });
+    });
+
+    $(document).on('click','#btn-kwandukjung-street-view',function(){
+        map.flyTo({
+            center: [126.521502, 33.51344],
+            zoom: 16,
+            speed: 0.5
+        });
+    })
+    $(document).on('click','#btn-kwandukjung-vr-view',function(){
+       window.open('/aframe.html')
     })
 
 </script>
