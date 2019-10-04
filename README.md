@@ -1,3 +1,3 @@
 # jeju
 
-https://alex-nguyen.github.io/jeju/index.html
+https://alex-nguyen.github.io/jeju/home.html
