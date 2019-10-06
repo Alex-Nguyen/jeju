@@ -1,9 +1,9 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoidmluaG50IiwiYSI6ImNqb2VqdXZvaDE4cnkzcG80dXkxZzlhNWcifQ.G6sZ1ukp_DhiSmCvgKblVQ';
-const config ={
-    markerVisibility:true,
-    modelVisibility:true,
-    buildingVisibility:true,
-    mapmarked:true
+const config = {
+    markerVisibility: true,
+    modelVisibility: true,
+    buildingVisibility: true,
+    mapmarked: true
 }
 const map = new mapboxgl.Map({
     container: 'map',
@@ -17,7 +17,7 @@ const map = new mapboxgl.Map({
  *
  * @returns label id of the last layer
  */
-function getLastLayer(){
+function getLastLayer() {
     const layers = map.getStyle().layers;
     let layer;
     for (var i = 0; i < layers.length; i++) {
@@ -33,11 +33,12 @@ function getLastLayer(){
  * Show / Hide a layer given layer Id
  * @param layerId
  */
-function showHideLayer(layerId,mark){
-    let visibility = mark===false? "none":"visible";
+function showHideLayer(layerId, mark) {
+    let visibility = mark === false ? "none" : "visible";
     map.setLayoutProperty(layerId, 'visibility', visibility);
 }
-function add3dbuildings(){
+
+function add3dbuildings() {
     const labelId = getLastLayer();
     let buildings = map.addLayer({
         'id': '3d-buildings',
@@ -66,7 +67,8 @@ function add3dbuildings(){
     }, labelId);
     return buildings;
 }
-function create3dmodel(modelUrl){
+
+function create3dmodel(modelUrl) {
     const modelOrigin = [126.521449, 33.513360];
     const modelAltitude = 0;
     const modelRotate = [Math.PI / 2, 0, 0];
@@ -103,7 +105,7 @@ function create3dmodel(modelUrl){
 
             var loader = new THREE.GLTFLoader();
             loader.load('assets/model/templar.glb', (function (gltf) {
-                gltf.scene.scale.set(0.025,0.025,0.025) // scale here
+                gltf.scene.scale.set(0.025, 0.025, 0.025) // scale here
                 gltf.scene.rotateY(-0.15)
                 this.scene.add(gltf.scene);
             }).bind(this));
@@ -139,7 +141,8 @@ function create3dmodel(modelUrl){
     map.addLayer(customLayer, 'waterway-label');
     return customLayer;
 }
-function addMarkers(){
+
+function addMarkers() {
     const locations = {
         intro: {
             title: "<h5 class='title'>Hello! My name is Dol hareubang</h5>" +
@@ -156,28 +159,28 @@ function addMarkers(){
             togglePopUp: true,
             center: [126.53, 33.37],
             zoom: 10,
-            vr_link:"/",
-            icons:[
+            vr_link: "/",
+            icons: [
                 {
-                    action:'street-view',
-                    icon:'fas fa-search-plus fa-border fa-2x',
-                    title:'Go to island'
+                    action: 'street-view',
+                    icon: 'fas fa-search-plus fa-border fa-2x',
+                    title: 'Go to island'
                 },
                 {
-                    action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x',
-                    title:'Watch Videos'
+                    action: 'film-view',
+                    icon: 'fas fa-film fa-border fa-2x',
+                    title: 'Watch Videos'
                 },
                 {
-                    action:'vr-view',
-                    icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html',
-                    title:'Virtual Reality Tour'
+                    action: 'vr-view',
+                    icon: 'fas fa-vr-cardboard fa-border fa-2x',
+                    url: '/harubang.html',
+                    title: 'Virtual Reality Tour'
                 },
                 {
-                    action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x',
-                    title:'Augmented Reality View'
+                    action: 'film-view',
+                    icon: 'fas fa-mobile-alt fa-border fa-2x',
+                    title: 'Augmented Reality View'
                 }
             ]
         },
@@ -191,28 +194,28 @@ function addMarkers(){
             thumbnailH: "160px",
             togglePopUp: false,
             zoom: 10,
-            vr_link:"/kwandukjung.html",
-            icons:[
+            vr_link: "/kwandukjung.html",
+            icons: [
                 {
-                    action:'street-view',
-                    icon:'fas fa-search-plus fa-border fa-2x',
-                    title:'Go to island'
+                    action: 'street-view',
+                    icon: 'fas fa-search-plus fa-border fa-2x',
+                    title: 'Go to island'
                 },
                 {
-                    action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x',
-                    title:'Watch Videos'
+                    action: 'film-view',
+                    icon: 'fas fa-film fa-border fa-2x',
+                    title: 'Watch Videos'
                 },
                 {
-                    action:'vr-view',
-                    icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html',
-                    title:'Virtual Reality Tour'
+                    action: 'vr-view',
+                    icon: 'fas fa-vr-cardboard fa-border fa-2x',
+                    url: '/harubang.html',
+                    title: 'Virtual Reality Tour'
                 },
                 {
-                    action:'ar-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x',
-                    title:'Augmented Reality View'
+                    action: 'ar-view',
+                    icon: 'fas fa-mobile-alt fa-border fa-2x',
+                    title: 'Augmented Reality View'
                 }
             ]
         },
@@ -224,27 +227,27 @@ function addMarkers(){
             thumbnailH: "160px",
             togglePopUp: false,
             zoom: 10,
-            icons:[
+            icons: [
                 {
-                    action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x',
-                    title:'Go to island'
+                    action: 'street-view',
+                    icon: 'fas fa-street-view fa-border fa-2x',
+                    title: 'Go to island'
                 },
                 {
-                    action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x',
-                    title:'Watch Videos'
+                    action: 'film-view',
+                    icon: 'fas fa-film fa-border fa-2x',
+                    title: 'Watch Videos'
                 },
                 {
-                    action:'vr-view',
-                    icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html',
-                    title:'Virtual Reality Tour'
+                    action: 'vr-view',
+                    icon: 'fas fa-vr-cardboard fa-border fa-2x',
+                    url: '/harubang.html',
+                    title: 'Virtual Reality Tour'
                 },
                 {
-                    action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x',
-                    title:'Augmented Reality View'
+                    action: 'film-view',
+                    icon: 'fas fa-mobile-alt fa-border fa-2x',
+                    title: 'Augmented Reality View'
                 }
             ]
         },
@@ -256,43 +259,43 @@ function addMarkers(){
             thumbnailH: "160px",
             togglePopUp: false,
             zoom: 10,
-            icons:[
+            icons: [
                 {
-                    action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x',
-                    title:'Go to island'
+                    action: 'street-view',
+                    icon: 'fas fa-street-view fa-border fa-2x',
+                    title: 'Go to island'
                 },
                 {
-                    action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x',
-                    title:'Watch Videos'
+                    action: 'film-view',
+                    icon: 'fas fa-film fa-border fa-2x',
+                    title: 'Watch Videos'
                 },
                 {
-                    action:'vr-view',
-                    icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html',
-                    title:'Virtual Reality Tour'
+                    action: 'vr-view',
+                    icon: 'fas fa-vr-cardboard fa-border fa-2x',
+                    url: '/harubang.html',
+                    title: 'Virtual Reality Tour'
                 },
                 {
-                    action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x',
-                    title:'Augmented Reality View'
+                    action: 'film-view',
+                    icon: 'fas fa-mobile-alt fa-border fa-2x',
+                    title: 'Augmented Reality View'
                 }
             ]
         }
     };
     Object.keys(locations).forEach(loc => {
         let footer = document.createElement('nav');
-        footer.className='nav justify-content-center icon-bar';
-        if(locations[loc].hasOwnProperty('icons')===true){
-            locations[loc]["icons"].forEach((icon,ii)=>{
+        footer.className = 'nav justify-content-center icon-bar';
+        if (locations[loc].hasOwnProperty('icons') === true) {
+            locations[loc]["icons"].forEach((icon, ii) => {
                 let li = document.createElement('li');
                 li.id = `btn-${loc}-${icon.action}`;
-                li.className='nav-item px-2';
+                li.className = 'nav-item px-2';
                 li.title = icon.title;
                 let i = document.createElement('i');
-                i.style.border="#390 1px solid";
-                i.className=icon.icon;
+                i.style.border = "#390 1px solid";
+                i.className = icon.icon;
                 li.appendChild(i);
                 footer.appendChild(li);
             })
@@ -315,21 +318,23 @@ function addMarkers(){
     });
 
 }
-function showHideMarker(mark){
+
+function showHideMarker(mark) {
 
     let markers = document.getElementsByClassName("marker");
     for (let i = 0; i < markers.length; i++) {
-        markers[i].style.visibility = mark===true?'visible':'hidden';
+        markers[i].style.visibility = mark === true ? 'visible' : 'hidden';
     }
 }
-map.on('load',function () {
+
+map.on('load', function () {
     addMarkers();
     let buildings = add3dbuildings();
     let model3d = create3dmodel('assets/model/templar.glb');
 
 });
 
-$(document).on('click','#btn-intro-street-view',function(){
+$(document).on('click', '#btn-intro-street-view', function () {
     $('.mapboxgl-popup').hidden();
     map.flyTo({
         center: [126.53, 33.37],
@@ -337,92 +342,114 @@ $(document).on('click','#btn-intro-street-view',function(){
         speed: 0.5
     });
 });
-$(document).on('click','#map-marked',function(e){
+$(document).on('click', '#map-marked', function (e) {
     e.preventDefault();
     e.stopPropagation();
     config.mapmarked = !config.mapmarked;
     let mark = config.mapmarked;
-    if(mark){
+    if (mark) {
         $(this).addClass("active")
-    }else{
+    } else {
         $(this).removeClass('active')
     }
     showHideMarker(mark);
 });
-$(document).on('click','#land-marked',function(e){
+$(document).on('click', '#land-marked', function (e) {
     e.preventDefault();
     e.stopPropagation();
     config.buildingVisibility = !config.buildingVisibility;
     let mark = config.buildingVisibility;
-    if(mark){
+    if (mark) {
         $(this).addClass("active")
-    }else{
+    } else {
         $(this).removeClass('active')
     }
-    showHideLayer('3d-buildings',mark);
+    showHideLayer('3d-buildings', mark);
 });
 
-$(document).on('click','#model3d',function(e){
+$(document).on('click', '#model3d', function (e) {
     e.preventDefault();
     e.stopPropagation();
     config.modelVisibility = !config.modelVisibility;
     let mark = config.modelVisibility;
-    if(mark){
+    if (mark) {
         $(this).addClass("active")
-    }else{
+    } else {
         $(this).removeClass('active')
     }
-    showHideLayer('3d-model',mark);
+    showHideLayer('3d-model', mark);
 });
 
-$(document).on('click','#btn-kwandukjung-street-view',function(){
+$(document).on('click', '#btn-kwandukjung-street-view', function () {
     $('.mapboxgl-popup').hide();
     map.flyTo({
         center: [126.521449, 33.513360],
         zoom: 20.5,
         speed: 0.5,
-        pitch:70
+        pitch: 70
     });
-    map.once('moveend',function () {
+    map.once('moveend', function () {
         config.mapmarked = !config.mapmarked;
         let mark = config.mapmarked;
-        if(mark){
+        if (mark) {
             $("#map-marked").addClass("active");
             $("#land-marked").addClass("active");
-        }else{
+        } else {
             $("#map-marked").removeClass('active');
             $("#land-marked").removeClass('active');
         }
         showHideMarker(mark);
-        showHideLayer('3d-buildings',mark);
+        showHideLayer('3d-buildings', mark);
     })
 });
 
-$(document).on('click','#btn-kwandukjung-film-view',function(){
+$(document).on('click', '#btn-kwandukjung-film-view', function () {
     let embedded = $('.mapboxgl-popup-content').find('#kwandukjung-film-view-video');
-    if(embedded.length >0){
+    if (embedded.length > 0) {
         let el = $('#kwandukjung-film-view-video');
+        if (el.is(":visible")) {
+            el.hide();
+        } else {
+            el.show();
+        }
+    } else {
+        $('.mapboxgl-popup-content').append("<iframe id='kwandukjung-film-view-video' width=\"320\"  src=\"https://www.youtube.com/embed/BCkhSmAdg2A\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+
+    }
+});
+
+
+$(document).on('click', '#btn-kwandukjung-ar-view', function () {
+    let embedded = $('.mapboxgl-popup-content').find('#kwandukjung-ar-view');
+    if (embedded.length > 0) {
+        let el = $('#kwandukjung-ar-view');
         if(el.is(":visible")){
             el.hide();
         }else{
             el.show();
         }
-    }else{
-        $('.mapboxgl-popup-content').append( "<iframe id='kwandukjung-film-view-video' width=\"320\"  src=\"https://www.youtube.com/embed/BCkhSmAdg2A\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>" );
+    } else {
+        $('.mapboxgl-popup-content').append("" +
+            "<div id='kwandukjung-ar-view'>" +
+            "<a href='assets/images/pattern-templar_marker.png' download><img download title='Print this map'  style='border:1px solid gray; cursor: pointer' src='assets/images/pattern-templar_marker.png' width='100px' height='100px'></a>" +
+            "" +
+            "<img title='Point your camera to this marker to url' style='border:1px solid gray; margin-left:10px; cursor: pointer' src='assets/images/pattern-templar_marker_qr.png' width='100px' height='100px'></div>");
 
     }
 });
-$(document).on('click','#btn-kwandukjung-vr-view',function(){
+
+
+$(document).on('click', '#btn-kwandukjung-vr-view', function () {
     window.open('/jeju/Gwandeokjeong.html')
 });
 
-$(document).on('click','#btnHome',function(){
+$(document).on('click', '#btnHome', function () {
     map.flyTo({
         center: [126.53, 33.37],
         zoom: 10,
         antialias: true,
-        speed:2,
-        pitch:0,
-        bearing:0
+        speed: 2,
+        pitch: 0,
+        bearing: 0
     });
 });
