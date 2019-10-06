@@ -23,8 +23,11 @@
     <a-assets>
         <a-asset-item id="templar" src="assets/model/templar.glb"></a-asset-item>
     </a-assets>
-    <a-marker id="templar" type='pattern' url='data/pattern-templar_marker.patt'>
+    <a-marker  type='pattern' url='data/pattern-templar_marker.patt'>
         <a-entity gltf-model="#templar"></a-entity>
+    </a-marker>
+    <a-marker id="box" type='pattern' url='data/letterA.patt'>
+        <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
     </a-marker>
 </a-scene>
 </body>
