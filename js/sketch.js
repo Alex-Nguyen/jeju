@@ -210,7 +210,7 @@ function addMarkers(){
                     title:'Virtual Reality Tour'
                 },
                 {
-                    action:'film-view',
+                    action:'ar-view',
                     icon:'fas fa-mobile-alt fa-border fa-2x',
                     title:'Augmented Reality View'
                 }
@@ -396,6 +396,21 @@ $(document).on('click','#btn-kwandukjung-street-view',function(){
         showHideMarker(mark);
         showHideLayer('3d-buildings',mark);
     })
+});
+
+$(document).on('click','#btn-kwandukjung-film-view',function(){
+    let embedded = $('.mapboxgl-popup-content').find('#kwandukjung-film-view-video');
+    if(embedded.length >0){
+        let el = $('#kwandukjung-film-view-video');
+        if(el.is(":visible")){
+            el.hide();
+        }else{
+            el.show();
+        }
+    }else{
+        $('.mapboxgl-popup-content').append( "<iframe id='kwandukjung-film-view-video' width=\"320\"  src=\"https://www.youtube.com/embed/BCkhSmAdg2A\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>" );
+
+    }
 });
 $(document).on('click','#btn-kwandukjung-vr-view',function(){
     window.open('/jeju/Gwandeokjeong.html')

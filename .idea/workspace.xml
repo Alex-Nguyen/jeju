@@ -13,35 +13,75 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="140" column="50" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="50" />
+            <state relative-caret-position="28">
+              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#3964#5098#0" />
-                <element signature="e#5438#5948#0" />
-                <element signature="e#7334#8375#0" />
+                <element signature="e#639#697#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/aframe.html">
+        <entry file="file://$PROJECT_DIR$/js/three.min.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/mapbox-gl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+            <state>
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home.html">
+        <entry file="file://$PROJECT_DIR$/js/sketch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+            <state relative-caret-position="333">
+              <caret line="206" column="37" selection-start-line="206" selection-start-column="37" selection-end-line="206" selection-end-column="37" />
+              <folding>
+                <element signature="n#!!doc;n#getLastLayer#0" />
+                <element signature="n#!!block;n#getLastLayer#0" />
+                <element signature="n#!!doc;n#showHideLayer#0" />
+                <element signature="n#!!block;n#add3dbuildings#0" />
+                <element signature="e#1003#1734#0" />
+                <element signature="n#!!block;n#create3dmodel#0" />
+                <element signature="e#2456#4640#0" />
+                <element signature="e#4769#6584#0" />
+                <element signature="e#8423#9978#0" />
+                <element signature="e#9994#11543#0" />
+                <element signature="e#11593#12943#0" />
+                <element signature="n#!!block;n#showHideMarker#0" />
+                <element signature="e#727#1459#0" />
+                <element signature="e#14397#14695#0" />
+                <element signature="e#13836#13940#0" />
+                <element signature="e#15329#15376#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gwandeokjeong_ar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="256" column="49" selection-start-line="256" selection-start-column="35" selection-end-line="256" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -49,8 +89,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/main.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14234">
-              <caret line="647" selection-start-line="647" selection-end-line="647" />
+            <state relative-caret-position="587">
+              <caret line="574" column="25" selection-end-line="1743" selection-end-column="1" />
+              <folding>
+                <element signature="e#1792#2491#2" expanded="true" />
+                <element signature="e#12759#13014#1" expanded="true" />
+                <element signature="e#13016#13139#1" expanded="true" />
+                <element signature="e#13216#13427#1" expanded="true" />
+                <element signature="e#13429#13552#1" expanded="true" />
+                <element signature="e#13686#13869#1" expanded="true" />
+                <element signature="e#13871#13994#1" expanded="true" />
+                <element signature="e#14072#14267#1" expanded="true" />
+                <element signature="e#14269#14392#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/markers.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
@@ -60,6 +120,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -68,15 +130,19 @@
     <findStrings>
       <find>trai</find>
       <find>.trailmenu</find>
+      <find>showHideMarker</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/css/main.min.css" />
         <option value="$PROJECT_DIR$/home.html" />
+        <option value="$PROJECT_DIR$/assets/css/main.min.css" />
         <option value="$PROJECT_DIR$/aframe.html" />
+        <option value="$PROJECT_DIR$/assets/css/markers.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/sketch.js" />
+        <option value="$PROJECT_DIR$/Gwandeokjeong_ar.html" />
       </list>
     </option>
   </component>
@@ -89,6 +155,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,7 +172,7 @@
               <item name="JEJU" type="b2602c69:ProjectViewProjectNode" />
               <item name="JEJU" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JEJU" type="b2602c69:ProjectViewProjectNode" />
@@ -113,19 +180,30 @@
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="JEJU" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JEJU" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JEJU" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JEJU" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -157,12 +235,13 @@
       <workItem from="1569267513348" duration="3510000" />
       <workItem from="1569620091227" duration="22000" />
       <workItem from="1569783664467" duration="7833000" />
-      <workItem from="1569798272834" duration="3410000" />
+      <workItem from="1569798272834" duration="5160000" />
+      <workItem from="1570305152735" duration="14179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14775000" />
+    <option name="totallyTimeSpent" value="30704000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -191,17 +270,47 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file:////myweb.ttu.edu/users/vinhtngu/js/main.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
+        <state relative-caret-position="614">
           <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="256" column="49" selection-start-line="256" selection-start-column="35" selection-end-line="256" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/main.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14234">
-          <caret line="647" selection-start-line="647" selection-end-line="647" />
+        <state relative-caret-position="587">
+          <caret line="574" column="25" selection-end-line="1743" selection-end-column="1" />
+          <folding>
+            <element signature="e#1792#2491#2" expanded="true" />
+            <element signature="e#12759#13014#1" expanded="true" />
+            <element signature="e#13016#13139#1" expanded="true" />
+            <element signature="e#13216#13427#1" expanded="true" />
+            <element signature="e#13429#13552#1" expanded="true" />
+            <element signature="e#13686#13869#1" expanded="true" />
+            <element signature="e#13871#13994#1" expanded="true" />
+            <element signature="e#14072#14267#1" expanded="true" />
+            <element signature="e#14269#14392#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/mapbox-gl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -212,16 +321,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/three.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/markers.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="140" column="50" selection-start-line="140" selection-start-column="16" selection-end-line="140" selection-end-column="50" />
+        <state relative-caret-position="28">
+          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#3964#5098#0" />
-            <element signature="e#5438#5948#0" />
-            <element signature="e#7334#8375#0" />
+            <element signature="e#639#697#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/sketch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="206" column="37" selection-start-line="206" selection-start-column="37" selection-end-line="206" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc;n#getLastLayer#0" />
+            <element signature="n#!!block;n#getLastLayer#0" />
+            <element signature="n#!!doc;n#showHideLayer#0" />
+            <element signature="n#!!block;n#add3dbuildings#0" />
+            <element signature="e#1003#1734#0" />
+            <element signature="n#!!block;n#create3dmodel#0" />
+            <element signature="e#2456#4640#0" />
+            <element signature="e#4769#6584#0" />
+            <element signature="e#8423#9978#0" />
+            <element signature="e#9994#11543#0" />
+            <element signature="e#11593#12943#0" />
+            <element signature="n#!!block;n#showHideMarker#0" />
+            <element signature="e#727#1459#0" />
+            <element signature="e#14397#14695#0" />
+            <element signature="e#13836#13940#0" />
+            <element signature="e#15329#15376#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gwandeokjeong_ar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
         </state>
       </provider>
     </entry>
