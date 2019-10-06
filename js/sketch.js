@@ -144,7 +144,7 @@ function create3dmodel(modelUrl) {
 
 function addMarkers() {
     const locations = {
-        intro: {
+        main: {
             title: "<h5 class='title'>Hello! My name is Dol hareubang</h5>" +
                 " I am also called tol harubang, or harubang. I am a large rock statue found on Jeju Island off the southern tip of South Korea. <\p>" +
                 "<p>" +
@@ -153,13 +153,13 @@ function addMarkers() {
                 "I have become the symbol of Jeju Island, and replicas of various sizes are sold as tourist souvenirs. </p>" +
                 "<p>" +
                 "Now, let me take you to a great tourist spots of Jeju Island.</p>",
-            thumbnailUrl: "https://raw.githubusercontent.com/Alex-Nguyen/jeju/master/assets/images/jeju.png",
-            thumbnailW: "150px",
-            thumbnailH: "180px",
-            togglePopUp: true,
+            thumbnailUrl: "assets/images/jeju.png",
             center: [126.53, 33.37],
+            thumbnailW: "160px",
+            thumbnailH: "200px",
+            togglePopUp: false,
             zoom: 10,
-            vr_link: "/",
+            vr_link: "/kwandukjung.html",
             icons: [
                 {
                     action: 'street-view',
@@ -178,7 +178,7 @@ function addMarkers() {
                     title: 'Virtual Reality Tour'
                 },
                 {
-                    action: 'film-view',
+                    action: 'ar-view',
                     icon: 'fas fa-mobile-alt fa-border fa-2x',
                     title: 'Augmented Reality View'
                 }
@@ -301,6 +301,7 @@ function addMarkers() {
             })
         }
         let popUp = new mapboxgl.Popup({offset: 100})
+            // .setHTML(`${locations[loc].title}`)
             .setHTML(`${locations[loc].title} ${footer.outerHTML}`)
         let el = document.createElement('div');
         el.id = loc;
@@ -311,10 +312,8 @@ function addMarkers() {
         let marker = new mapboxgl.Marker(el)
             .setLngLat(locations[loc].center)
             .setPopup(popUp) // sets a popup on this marker
-            .addTo(map)
-        if (locations[loc].togglePopUp) {
-            marker.togglePopup();
-        }
+            .addTo(map);
+
     });
 
 }
@@ -437,7 +436,24 @@ $(document).on('click', '#btn-kwandukjung-ar-view', function () {
 
     }
 });
+$(document).on('click', '#btn-main-ar-view', function () {
+    let embedded = $('.mapboxgl-popup-content').find('#main-ar-view');
+    if (embedded.length > 0) {
+        let el = $('#main-ar-view');
+        if(el.is(":visible")){
+            el.hide();
+        }else{
+            el.show();
+        }
+    } else {
+        $('.mapboxgl-popup-content').append("" +
+            "<div id='main-ar-view'>" +
+            "<a href='assets/images/pattern-harubang-marker.png' download><img download title='Print this map'  style='border:1px solid gray; cursor: pointer' src='assets/images/pattern-harubang-marker.png' width='100px' height='100px'></a>" +
+            "" +
+            "<img title='Point your camera to this marker to url' style='border:1px solid gray; margin-left:10px; cursor: pointer' src='assets/images/pattern-templar_marker_qr.png' width='100px' height='100px'></div>");
 
+    }
+});
 
 $(document).on('click', '#btn-kwandukjung-vr-view', function () {
     window.open('/jeju/Gwandeokjeong.html')
