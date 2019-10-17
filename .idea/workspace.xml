@@ -86,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/Gwandeokjeong.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -232,12 +232,12 @@
       <workItem from="1569798272834" duration="5160000" />
       <workItem from="1570305152735" duration="16258000" />
       <workItem from="1570333142060" duration="6329000" />
-      <workItem from="1571339358047" duration="587000" />
+      <workItem from="1571339358047" duration="784000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39699000" />
+    <option name="totallyTimeSpent" value="39896000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="804" extended-state="6" />
@@ -361,7 +361,7 @@
     <entry file="file://$PROJECT_DIR$/Gwandeokjeong.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
