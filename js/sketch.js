@@ -146,7 +146,7 @@ function addMarkers() {
     const locations = {
         main: {
             title: "<h5 class='title'>Hello! My name is Dol hareubang</h5>" +
-                " I am also called tol harubang, or harubang. I am a large rock statue found on Jeju Island off the southern tip of South Korea. <\p>" +
+                "I am also called tol harubang, or harubang. I am a large rock statue found on Jeju Island off the southern tip of South Korea. <\p>" +
                 "<p>" +
                 "I am usually considered to be a god offering both protection and fertility, and placed outside of gates for protection against demons travelling between realities.</p>" +
                 "<p>" +

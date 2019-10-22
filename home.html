@@ -1,358 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset='utf-8'/>
-    <title>Jeju Island tourism</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.2/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.2/mapbox-gl.css' rel='stylesheet'/>
-    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <script src='https://unpkg.com/three@0.106.2/build/three.min.js'></script>
-    <script src="https://unpkg.com/three@0.106.2/examples/js/loaders/GLTFLoader.js"></script>
+    <meta charset="UTF-8">
+    <title>Jeju Island Augmented Reality</title>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+    <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <script src="js/ARapp.js"></script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+        body{
+            margin: auto;
+            overflow: hidden;
         }
-
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .img-thumbnail {
-            background-size: cover;
-            border-radius: 10%;
-            cursor: pointer;
-        }
-
-        .mapboxgl-popup {
-            max-width: 400px;
-            font: 14px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        }
-
-        .mapboxgl-popup-content {
-            width: 340px;
-        }
-        .title{
-            color:#390
-        }
-        .icon-bar li{
-            padding: 5px;
-
-
-        }
-        .icon-bar li:hover{
-            cursor: pointer;
-            color: gray;
-
-        }
-        .icon-bar li i{
-
-            color:#390
-        }
-        .icon-bar li i:hover{
-
-            color: gray;
-        }
-
     </style>
 </head>
 <body>
+<div class="fixed-bottom mb-4">
+    <div id="message01" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>Hello! My name is Dol hareubang. I am also called tol harubang, or harubang. I am a large rock statue found on Jeju Island off the southern tip of South Korea</h4>
+    </div>
+    <div id="message02" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>After much skirmishing along the way, the Federals attacked the camp and scattered the Confederates</h4>
+    </div>
+    <div id="message03" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>The Union took Palmito Ranch, burning any supplies that they found abandoned at the camp, and capturing
+            three prisoners. Branson and his men remained at the site to feed themselves and their horses</h4>
+    </div>
+    <div id="message04" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>At 3:00 pm, a sizable Confederate force appeared, influencing the Federals to retire to White's Ranch</h4>
+    </div>
+    <div id="message05" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>On the 13th, with 200 augmented men, the Union started out towards Palmito Ranch, skirmishing most of the
+            way. They destroyed the rest of the supplies not torched the day before and continued on</h4>
+    </div>
+    <div id="message06" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>After the fighting stopped, Barrett led his force back to a bluff at Tulosa on the river where the men could
+            prepare dinner and camp for the night</h4>
+    </div>
+    <div id="message07" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>At 4:00 pm, a large Confederate cavalry force, commanded by Col. John S. Ford, approached. The Rebels
+            hammered the Union line with artillery</h4>
+    </div>
+    <div id="message08" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>To preclude an enemy flanking movement, Barrett ordered a retreat. This was the last battle in the Civil
+            War</h4>
+    </div>
+</div>
+<div class="fixed-top mt-4">
+    <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+            <button type="button" id="stage1" class="btn btn-dark stage">S1</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage2" class="btn btn-dark stage">S2</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage3" class="btn btn-dark stage">S3</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage4" class="btn btn-dark stage">S4</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="fullScreen" class="btn btn-success"><i class="fas fa-expand"></i></button>
+        </li>
+        <li class="nav-item">
+            <a href="data/printedmap.pdf" download class="btn btn-success"><i class="fas fa-print"></i></a>
 
-<div id='map'></div>
+        </li>
+    </ul>
+</div>
+    <a-scene manager embedded arjs='sourceType: webcam;  debugUIEnabled: false' vr-mode-ui="enabled: false" >
+        <a-assets>
+        <a-asset-item id="harubang" src="assets/model/harubangnew.glb">
+        </a-asset-item>
+            <audio id="audio1" src="assets/audio/harubang_intro.mp3" class="audio-play"  preload="auto">
+            </audio>
+            <audio id="audio2" src="assets/audio/Gwangdeokjeong.mp3" class="audio-play"  preload="auto">
+            </audio>
+            <audio id="audio3" src="assets/audio/Bijarim.mp3" class="audio-play"  preload="auto">
+            </audio>
+            <audio id="audio4" src="assets/audio/Village.mp3" class="audio-play"  preload="auto">
+            </audio>
+        </a-assets>
+        <a-marker id="pos1" type='pattern' url='data/pattern-harubang.patt'>
+            <a-entity gltf-model="#harubang"  id="s1"></a-entity>
+            <a-text id="txt01" position="0.5 1 0" value="Hello! My name is Dol hareubang" look-at="[camera]" wrap-count="50"></a-text>
+
+        </a-marker>
+        <a-marker id="pos2" type='pattern' url='data/pattern-Gwandeokjeong_Pavilion.patt'>
+            <a-box position='0 0.5 0' material='color: red;'></a-box>
+        </a-marker>
+        <a-marker id="pos3" type='pattern' url='data/pattern-Bijarim.patt'>
+            <a-box position='0 0.5 0' material='color: red;'></a-box>
+        </a-marker>
+        <a-marker id="pos4" type='pattern' url='data/pattern-seongeup-folk-village.patt'>
+            <a-box position='0 0.5 0' material='color: red;'></a-box>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
 </body>
-<script>
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoidmluaG50IiwiYSI6ImNqb2VqdXZvaDE4cnkzcG80dXkxZzlhNWcifQ.G6sZ1ukp_DhiSmCvgKblVQ';
-    const locations = {
-        intro: {
-            title: "<h5 class='title'>Hello! My name is Dol hareubang</h5>" +
-                " I am also called tol harubang, or harubang. I am a large rock statue found on Jeju Island off the southern tip of South Korea. <\p>" +
-                "<p>" +
-                "I am usually considered to be a god offering both protection and fertility, and placed outside of gates for protection against demons travelling between realities.</p>" +
-                "<p>" +
-                "I have become the symbol of Jeju Island, and replicas of various sizes are sold as tourist souvenirs. </p>" +
-                "<p>" +
-                "Now, let me take you to a great tourist spots of Jeju Island.</p>",
-            thumbnailUrl: "https://raw.githubusercontent.com/Alex-Nguyen/jeju/master/assets/images/jeju.png",
-            thumbnailW: "150px",
-            thumbnailH: "180px",
-            togglePopUp: true,
-            center: [126.53, 33.37],
-            zoom: 10,
-            vr_link:"/",
-            icons:[
-                {
-                    action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x',
-                    title:'Go to island'
-                },
-                {
-                    action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x',
-                    title:'Watch Videos'
-                },
-                {
-                    action:'vr-view',
-                    icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html',
-                    title:'Virtual Reality Tour'
-                },
-                {
-                    action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x',
-                    title:'Augmented Reality View'
-                }
-            ]
-        },
-        kwandukjung: {
-            title: "Here is one of the oldest standing architectures on Jeju Island." +
-                "<p>" +
-                "Gwandeokjeong Pavilion was built by Pastor Sin Suk-Cheong in the thirtieth year of King Sejong's reign (1448) as a training ground. For its historic contribution to strengthening the mind and soul of soldiers, <p> Gwangdeokjeong was designated as National Treasure in 1963. Today, the pavilion serves as a model of excellence in soldier training",
-            thumbnailUrl: "https://raw.githubusercontent.com/Alex-Nguyen/jeju/master/assets/images/Kwandukjung.jpg",
-            center: [126.521502, 33.51344],
-            thumbnailW: "200px",
-            thumbnailH: "160px",
-            togglePopUp: false,
-            zoom: 10,
-            vr_link:"/kwandukjung.html",
-            icons:[
-                {
-                    action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x',
-                    title:'Go to island'
-                },
-                {
-                    action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x',
-                    title:'Watch Videos'
-                },
-                {
-                    action:'vr-view',
-                    icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html',
-                    title:'Virtual Reality Tour'
-                },
-                {
-                    action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x',
-                    title:'Augmented Reality View'
-                },
-                {
-                    action:'cubes-view',
-                    icon:'fas fa-cubes fa-border fa-2x',
-                    title:'View 3D model'
-                }
-            ]
-        },
-        bijarim: {
-            title: "Bijarim Forest is an ideal spot for a relaxing forest retreat. The dense forest is home to hundreds of bija (nutmeg yew) trees, and is the largest forest in the world to be made up of one plant species.<p> Most of the trees in the forest have lived for 500 to 700 years, earning the forest the nickname “Forest of a Thousand Years.” A must-see sight while at Bijarim Forest is none other than the 800-year old, conjoined nutmeg yews.",
-            thumbnailUrl: "https://raw.githubusercontent.com/Alex-Nguyen/jeju/master/assets/images/Bijarim.jpg",
-            center: [126.808487, 33.485726],
-            thumbnailW: "200px",
-            thumbnailH: "160px",
-            togglePopUp: false,
-            zoom: 10,
-            icons:[
-                {
-                    action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x',
-                    title:'Go to island'
-                },
-                {
-                    action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x',
-                    title:'Watch Videos'
-                },
-                {
-                    action:'vr-view',
-                    icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html',
-                    title:'Virtual Reality Tour'
-                },
-                {
-                    action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x',
-                    title:'Augmented Reality View'
-                }
-            ]
-        },
-        folk: {
-            title: "The Jeju Folk Village is the island’s main tourist attraction where customs of the old days can be explored. At Jeju Folk Village the unique lifestyle and traditional culture of Jeju Island are presented as they appeared during the 19th century. A mountain village, fishing village, botanical garden, market place, an old government building and authentic shamanistic rites one recreated on this 4500-hectare site in Pyoseon-ri",
-            thumbnailUrl: "https://raw.githubusercontent.com/Alex-Nguyen/jeju/master/assets/images/Village.jpg",
-            center: [126.842149, 33.322579],
-            thumbnailW: "200px",
-            thumbnailH: "160px",
-            togglePopUp: false,
-            zoom: 10,
-            icons:[
-                {
-                    action:'street-view',
-                    icon:'fas fa-street-view fa-border fa-2x',
-                    title:'Go to island'
-                },
-                {
-                    action:'film-view',
-                    icon:'fas fa-film fa-border fa-2x',
-                    title:'Watch Videos'
-                },
-                {
-                    action:'vr-view',
-                    icon:'fas fa-vr-cardboard fa-border fa-2x',
-                    url:'/harubang.html',
-                    title:'Virtual Reality Tour'
-                },
-                {
-                    action:'film-view',
-                    icon:'fas fa-mobile-alt fa-border fa-2x',
-                    title:'Augmented Reality View'
-                }
-            ]
-        }
-    };
-
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        center: [126.53, 33.37],
-        zoom: 11
-    });
-    function streetView(center){
-        console.log(center)
-    }
-
-    Object.keys(locations).forEach(loc => {
-        let footer = document.createElement('nav');
-        footer.className='nav justify-content-center icon-bar';
-        if(locations[loc].hasOwnProperty('icons')===true){
-            locations[loc]["icons"].forEach((icon,ii)=>{
-                let li = document.createElement('li');
-                li.id = `btn-${loc}-${icon.action}`;
-                li.className='nav-item px-2';
-                li.title = icon.title;
-                let i = document.createElement('i');
-                i.style.border="#390 1px solid";
-                i.className=icon.icon;
-
-                li.appendChild(i);
-
-                footer.appendChild(li);
-
-            })
-        }
-        let popUp = new mapboxgl.Popup({offset: 100})
-            .setHTML(`${locations[loc].title} ${footer.outerHTML}`)
-
-        let el = document.createElement('div');
-        el.id = loc;
-        el.className = 'img-thumbnail';
-        el.style.backgroundImage = `url(${locations[loc].thumbnailUrl})`;
-        el.style.width = locations[loc].thumbnailW;
-        el.style.height = locations[loc].thumbnailH;
-        let marker = new mapboxgl.Marker(el)
-            .setLngLat(locations[loc].center)
-            .setPopup(popUp) // sets a popup on this marker
-            .addTo(map)
-        if (locations[loc].togglePopUp) {
-            marker.togglePopup();
-        }
-
-
-    })
-    $(document).on('click','#btn-intro-street-view',function(){
-        map.flyTo({
-            center: [126.53, 33.37],
-            zoom: 16,
-            speed: 0.5
-        });
-    });
-
-    $(document).on('click','#btn-kwandukjung-street-view',function(){
-        map.flyTo({
-            center: [126.521502, 33.51344],
-            zoom: 16,
-            speed: 0.5
-        });
-    });
-    $(document).on('click','#btn-kwandukjung-vr-view',function(){
-       window.open('/jeju/aframe.html')
-    });
-
-    $(document).on('click','#btn-kwandukjung-cubes-view',function(){
-        var modelOrigin = [126.521502, 33.51344];
-        var modelAltitude = 0;
-        var modelRotate = [Math.PI / 2, 0, 0];
-        var modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(modelOrigin, modelAltitude);
-        // transformation parameters to position, rotate and scale the 3D model onto the map
-        var modelTransform = {
-            translateX: modelAsMercatorCoordinate.x,
-            translateY: modelAsMercatorCoordinate.y,
-            translateZ: modelAsMercatorCoordinate.z,
-            rotateX: modelRotate[0],
-            rotateY: modelRotate[1],
-            rotateZ: modelRotate[2],
-            /* Since our 3D model is in real world meters, a scale transform needs to be
-            * applied since the CustomLayerInterface expects units in MercatorCoordinates.
-            */
-            scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits()
-        };
-        var THREE = window.THREE;
-        // configuration of the custom layer for a 3D model per the CustomLayerInterface
-        var customLayer = {
-            id: '3d-model',
-            type: 'custom',
-            renderingMode: '3d',
-            onAdd: function (map, gl) {
-                this.camera = new THREE.Camera();
-                this.scene = new THREE.Scene();
-// create two three.js lights to illuminate the model
-                var directionalLight = new THREE.DirectionalLight(0xffffff);
-                directionalLight.position.set(0, -70, 100).normalize();
-                this.scene.add(directionalLight);
-                var directionalLight2 = new THREE.DirectionalLight(0xffffff);
-                directionalLight2.position.set(0, 70, 100).normalize();
-                this.scene.add(directionalLight2);
-// use the three.js GLTF loader to add the 3D model to the three.js scene
-                var loader = new THREE.GLTFLoader();
-                loader.load('assets/model/templar.glb', (function (gltf) {
-                    this.scene.add(gltf.scene);
-                }).bind(this));
-                this.map = map;
-// use the Mapbox GL JS map canvas for three.js
-                this.renderer = new THREE.WebGLRenderer({
-                    canvas: map.getCanvas(),
-                    context: gl,
-                    antialias: true
-                });
-                this.renderer.autoClear = false;
-            },
-            render: function (gl, matrix) {
-                var rotationX = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(1, 0, 0), modelTransform.rotateX);
-                var rotationY = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(0, 1, 0), modelTransform.rotateY);
-                var rotationZ = new THREE.Matrix4().makeRotationAxis(new THREE.Vector3(0, 0, 1), modelTransform.rotateZ);
-                var m = new THREE.Matrix4().fromArray(matrix);
-                var l = new THREE.Matrix4().makeTranslation(modelTransform.translateX, modelTransform.translateY, modelTransform.translateZ)
-                    .scale(new THREE.Vector3(modelTransform.scale, -modelTransform.scale, modelTransform.scale))
-                    .multiply(rotationX)
-                    .multiply(rotationY)
-                    .multiply(rotationZ);
-                this.camera.projectionMatrix.elements = matrix;
-                this.camera.projectionMatrix = m.multiply(l);
-                this.renderer.state.reset();
-                this.renderer.render(this.scene, this.camera);
-                this.map.triggerRepaint();
-            }
-        };
-        map.on('style.load', function () {
-            map.addLayer(customLayer, 'waterway-label');
-        });
-    })
-
-</script>
 </html>
