@@ -17,14 +17,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>trai</find>
-      <find>.trailmenu</find>
-      <find>showHideMarker</find>
-      <find>togglePopUp</find>
-    </findStrings>
-  </component>
   <component name="ProjectId" id="1SWtPLaybOGlz2iSnNJpCvN9IHa" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -70,7 +62,9 @@
       <workItem from="1570305152735" duration="16258000" />
       <workItem from="1570333142060" duration="6851000" />
       <workItem from="1570568689148" duration="31000" />
-      <workItem from="1571691157517" duration="13713000" />
+      <workItem from="1571691157517" duration="14323000" />
+      <workItem from="1571798697578" duration="40000" />
+      <workItem from="1572578070592" duration="10642000" />
     </task>
     <servers />
   </component>
