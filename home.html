@@ -20,12 +20,39 @@
     <script src="js/ARapp.js"></script>
     <style>
         body {
+
             margin: auto;
             overflow: hidden;
+        }
+        .image-intro{
+            position:absolute;
+            height: 100%;
+            width:100%;
+        }
+        .image-intro img{
+            position:absolute;
+            top:100px;
+            left:0;
+            right:0;
+            bottom:0;
+            margin:auto;
         }
     </style>
 </head>
 <body>
+<div class="image-intro">
+    <img id="templeGIF" style="display: none" class="img-thumbnail" src="assets/images/templeimg.gif" width="300px" alt="Harubang">
+    <img id="harubangimg" style="display: none" class="img-thumbnail" src="assets/images/harubang.jpg" width="300px" alt="Harubang">
+    <img id="harubangimg1" style="display: none" class="img-thumbnail" src="assets/images/harubang1.jpg" width="300px" alt="Harubang">
+    <img id="harubangimg2" style="display: none" class="img-thumbnail" src="assets/images/harubang2.jpg" width="300px" alt="Harubang">
+    <img id="bijarim_tree" style="display: none" class="img-thumbnail" src="assets/images/bijarim_tree.jpg" width="300px" alt="Bijarim Tree">
+    <img id="bijarim_tree1" style="display: none" class="img-thumbnail" src="assets/images/bijarim_tree1.jpg" width="300px" alt="Bijarim Tree">
+    <img id="bijarim_tree2" style="display: none" class="img-thumbnail" src="assets/images/bijarim_tree2.jpg" width="300px" alt="Bijarim Tree">
+    <img id="bijarim_tree3" style="display: none" class="img-thumbnail" src="assets/images/bijarim_tree3.jpg" width="300px" alt="Bijarim Tree">
+    <img id="village" style="display: none" class="img-thumbnail" src="assets/images/jeju-folk-village.jpg" width="300px" alt="Bijarim Tree">
+    <img id="village1" style="display: none" class="img-thumbnail" src="assets/images/jeju-folk-village1.jpg" width="300px" alt="Bijarim Tree">
+    <img id="village2" style="display: none" class="img-thumbnail" src="assets/images/jeju-folk-village2.jpg" width="300px" alt="Bijarim Tree">
+</div>
 <div class="fixed-bottom mb-4">
     <div class="text-center pl-5 pr-5 bg-info message">
         <h4><span id="message"></span></h4>
@@ -74,7 +101,7 @@
     </a-marker>
     <a-marker id="pos2" type='pattern' url='data/pattern-Gwandeokjeong_Pavilion.patt'>
         <a-entity gltf-model="#harubang" id="s2" visible="false"></a-entity>
-        <a-entity gltf-model="#templar" visible ="false" position="2.5 1.5 0"  id="s21" scale="0.005 0.005 0.005" ></a-entity>
+        <a-entity gltf-model="#templar" visible ="false" position="-2.5 -1 0"  id="s21" scale="0.005 0.005 0.005" ></a-entity>
 
     </a-marker>
     <a-marker id="pos3" type='pattern' url='data/pattern-Bijarim.patt'>

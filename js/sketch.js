@@ -197,6 +197,11 @@ function addMarkers() {
             vr_link: "/kwandukjung.html",
             icons: [
                 {
+                    action: 'avatar-speech',
+                    icon: 'fas fa-volume-up fa-border fa-2x',
+                    title: 'Introduction'
+                },
+                {
                     action: 'street-view',
                     icon: 'fas fa-search-plus fa-border fa-2x',
                     title: 'Go to island'
@@ -301,7 +306,7 @@ function addMarkers() {
             })
         }
         let popUp = new mapboxgl.Popup({offset: 100})
-            // .setHTML(`${locations[loc].title}`)
+        // .setHTML(`${locations[loc].title}`)
             .setHTML(`${locations[loc].title} ${footer.outerHTML}`)
         let el = document.createElement('div');
         el.id = loc;
@@ -309,6 +314,8 @@ function addMarkers() {
         el.style.backgroundImage = `url(${locations[loc].thumbnailUrl})`;
         el.style.width = locations[loc].thumbnailW;
         el.style.height = locations[loc].thumbnailH;
+
+
         let marker = new mapboxgl.Marker(el)
             .setLngLat(locations[loc].center)
             .setPopup(popUp) // sets a popup on this marker
@@ -422,9 +429,9 @@ $(document).on('click', '#btn-kwandukjung-ar-view', function () {
     let embedded = $('.mapboxgl-popup-content').find('#kwandukjung-ar-view');
     if (embedded.length > 0) {
         let el = $('#kwandukjung-ar-view');
-        if(el.is(":visible")){
+        if (el.is(":visible")) {
             el.hide();
-        }else{
+        } else {
             el.show();
         }
     } else {
@@ -436,13 +443,14 @@ $(document).on('click', '#btn-kwandukjung-ar-view', function () {
 
     }
 });
+
 $(document).on('click', '#btn-main-ar-view', function () {
     let embedded = $('.mapboxgl-popup-content').find('#main-ar-view');
     if (embedded.length > 0) {
         let el = $('#main-ar-view');
-        if(el.is(":visible")){
+        if (el.is(":visible")) {
             el.hide();
-        }else{
+        } else {
             el.show();
         }
     } else {
@@ -468,4 +476,75 @@ $(document).on('click', '#btnHome', function () {
         pitch: 0,
         bearing: 0
     });
+});
+var sup1 = new SuperGif({gif: document.getElementById('exampleimg')});
+sup1.load(function () {
+    $(document).on('click', '#btn-kwandukjung-avatar-speech', function () {
+
+        var text = "Here is one of the oldest standing architectures on Jeju Island. Gwandeokjeong Pavilion was built by Pastor Sin Suk-Cheong in the thirtieth year of King Sejong's reign as a training ground. For its historic contribution to strengthening the mind and soul of soldiers. Gwangdeokjeong was designated as National Treasure in nineteen sixty three. Today, the pavilion serves as a model of excellence in soldier training"
+        var substrings = text.match(/[^.?,!]+[.?,!]?/g);
+        for (var i = 0, l = substrings.length; i < l; ++i) {
+            var str = substrings[i].trim();
+
+            // Make sure there is something to say other than the deliminator
+            var numpunc = (str.match(/[.?,!]/g) || []).length;
+            if (str.length - numpunc > 0) {
+
+                // suprisingly decent approximation for multiple languages.
+
+                // if you change the rate, you would have to adjust
+                var speakingDurationEstimate = str.length * 50;
+                // Chinese needs a different calculation.  Haven't tried other Asian languages.
+                if (str.match(/[\u3400-\u9FBF]/)) {
+                    speakingDurationEstimate = str.length * 200;
+                }
+
+                var msg = new SpeechSynthesisUtterance();
+
+                (function (dur) {
+                    msg.addEventListener('start', function () {
+                        sup1.play_for_duration(dur);
+                    })
+                })(speakingDurationEstimate);
+
+                // The end event is too inacurate to use for animation,
+                // but perhaps it could be used elsewhere.  You might need to push
+                // the msg to an array or aggressive garbage collection fill prevent the callback
+                // from firing.
+                //msg.addEventListener('end', function (){console.log("too late")}
+
+                msg.text = str;
+                //change voice here
+                //msg.voice = voice;
+
+                window.speechSynthesis.speak(msg);
+            }
+        }
+    });
+});
+$( "#iconfig" ).on( "click", function() {
+    $( "#dialog-message" ).dialog( "open" );
+});
+$( "#dialog-message" ).dialog({
+    autoOpen: false,
+    maxWidth:1280,
+    maxHeight: 800,
+    width: 900,
+    height: 650,
+    buttons: {
+        Save: function() {
+            $( this ).dialog( "close" );
+        },
+        Cancel: function() {
+            $( this ).dialog( "close" );
+        }
+    },
+    show: {
+        effect: "blind",
+        duration: 1000
+    },
+    hide: {
+        effect: "explode",
+        duration: 1000
+    }
 });

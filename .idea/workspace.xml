@@ -21,7 +21,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -29,6 +29,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Coding\JEJU\img" />
       <recent name="D:\Coding\JEJU\data" />
       <recent name="D:\Coding\JEJU\assets\model" />
     </key>
@@ -64,7 +65,10 @@
       <workItem from="1570568689148" duration="31000" />
       <workItem from="1571691157517" duration="14323000" />
       <workItem from="1571798697578" duration="40000" />
-      <workItem from="1572578070592" duration="10642000" />
+      <workItem from="1572578070592" duration="17646000" />
+      <workItem from="1572829248862" duration="385000" />
+      <workItem from="1582247242745" duration="14410000" />
+      <workItem from="1582423472076" duration="1122000" />
     </task>
     <servers />
   </component>
